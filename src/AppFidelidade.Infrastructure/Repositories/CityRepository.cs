@@ -42,7 +42,7 @@ namespace AppFidelidade.Infrastructure.Repositories
         public async Task<CityOutputModelDto> GetById(Guid id)
         {
             var obj = await _context.City
-                .AsNoTracking()
+                .AsNoTrackingWithIdentityResolution()
                 .FirstOrDefaultAsync(x => x.Id == id);
 
             return obj?.ConvertToObjectOutPut();
@@ -50,10 +50,10 @@ namespace AppFidelidade.Infrastructure.Repositories
 
         public async Task<List<CityOutputModelDto>> GetAll()
         {
-            var list = await _context.City
-                .AsNoTracking()
-                .Select(x => x.ConvertToObjectOutPut()).ToListAsync();
-            return list;
+            return await _context.City
+                .AsNoTrackingWithIdentityResolution()
+                .Select(x => x.ConvertToObjectOutPut())
+                .ToListAsync();
         }
 
         public async Task<PaginationReturn<CityOutputModelDto>> GetAllPagination(PaginationParameters paginationParameters)
@@ -65,7 +65,7 @@ namespace AppFidelidade.Infrastructure.Repositories
         public async Task<List<CityOutputModelDto>> GetAll(char status)
         {
             return await _context.City
-                .AsNoTracking()
+                .AsNoTrackingWithIdentityResolution()
                 .Where(x => x.Status == status)
                 .Select(x => x.ConvertToObjectOutPut())
                 .OrderBy(x => x.Id)
@@ -74,7 +74,7 @@ namespace AppFidelidade.Infrastructure.Repositories
 
         public async Task<City> Exists(City entity)
         {
-            return await _context.City.AsNoTracking()
+            return await _context.City.AsNoTrackingWithIdentityResolution()
                 .FirstOrDefaultAsync(x => x.Description == entity.Description && x.CountryId == entity.CountryId);
         }
 
@@ -107,7 +107,7 @@ namespace AppFidelidade.Infrastructure.Repositories
 
         public async Task<City> GetByDescription(string description)
         {
-            return await _context.City.AsNoTracking()
+            return await _context.City.AsNoTrackingWithIdentityResolution()
                 .FirstOrDefaultAsync(x => x.Description.ToUpper() == description.ToUpper());
         }
     }

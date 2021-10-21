@@ -50,12 +50,10 @@ namespace AppFidelidade.Infrastructure.Repositories
 
         public async Task<List<CardOutputModelDto>> GetAll()
         {
-            var list = await _context.Card
+            return await _context.Card
                 .AsNoTracking()
                 .Select(x => x.ConvertToObjectOutPut())
                 .ToListAsync();
-
-            return list;
         }
 
         public async Task<PaginationReturn<CardOutputModelDto>> GetAllPagination(PaginationParameters paginationParameters)
@@ -70,7 +68,6 @@ namespace AppFidelidade.Infrastructure.Repositories
                 .AsNoTracking()
                 .Where(x => x.Status == status)
                 .Select(x => x.ConvertToObjectOutPut())
-                .OrderBy(x => x.CardNumber)
                 .ToListAsync();
         }
 

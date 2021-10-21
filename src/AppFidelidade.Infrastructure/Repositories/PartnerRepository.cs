@@ -42,7 +42,7 @@ namespace AppFidelidade.Infrastructure.Repositories
         public async Task<PartnerOutputModelDto> GetById(Guid id)
         {
             var obj = await _context.Partner
-                .AsNoTracking()
+                .AsNoTrackingWithIdentityResolution()
                 .FirstOrDefaultAsync(x => x.Id == id);
             
             return obj?.ConvertToObjectOutPut();
@@ -51,7 +51,7 @@ namespace AppFidelidade.Infrastructure.Repositories
         public async Task<List<PartnerOutputModelDto>> GetAll()
         {
             return await _context.Partner
-                .AsNoTracking()
+                .AsNoTrackingWithIdentityResolution()
                 .Select(x => x.ConvertToObjectOutPut())
                 .ToListAsync();
         }
@@ -65,7 +65,7 @@ namespace AppFidelidade.Infrastructure.Repositories
         public async Task<List<PartnerOutputModelDto>> GetAll(char status)
         {
             return await _context.Partner
-                .AsNoTracking()
+                .AsNoTrackingWithIdentityResolution()
                 .Where(x => x.Status == status)
                 .Select(x => x.ConvertToObjectOutPut())
                 .OrderBy(x => x.Id)
@@ -75,7 +75,7 @@ namespace AppFidelidade.Infrastructure.Repositories
         public async Task<Partner> Exists(Partner entity)
         {
             return await _context.Partner
-                .AsNoTracking()
+                .AsNoTrackingWithIdentityResolution()
                 .FirstOrDefaultAsync(x => x.CnpjCpf == entity.CnpjCpf);
         }
 
@@ -109,21 +109,21 @@ namespace AppFidelidade.Infrastructure.Repositories
         public async Task<Partner> GetByCnpjCpf(string cnpjCpf)
         {
             return await _context.Partner
-                .AsNoTracking()
+                .AsNoTrackingWithIdentityResolution()
                 .FirstOrDefaultAsync(x => x.CnpjCpf == cnpjCpf);
         }
 
         public async Task<Partner> GetByCnpjCpfById(string cnpjCpf, Guid id)
         {
             return await _context.Partner
-                .AsNoTracking()
+                .AsNoTrackingWithIdentityResolution()
                 .FirstOrDefaultAsync(x => x.CnpjCpf == cnpjCpf && x.Id == id);
         }
 
         public async Task<Partner> GetByCorporateName(string corporateName)
         {
             return await _context.Partner
-                .AsNoTracking()
+                .AsNoTrackingWithIdentityResolution()
                 .FirstOrDefaultAsync(x => x.CorporateName == corporateName);
         }
     }

@@ -42,7 +42,7 @@ namespace AppFidelidade.Infrastructure.Repositories
         public async Task<ClientOutputModelDto> GetById(Guid id)
         {
             var obj = await _context.Client
-                .AsNoTracking()
+                .AsNoTrackingWithIdentityResolution()
                 .FirstOrDefaultAsync(x => x.Id == id);
 
             return obj?.ConvertToObjectOutPut();
@@ -51,7 +51,7 @@ namespace AppFidelidade.Infrastructure.Repositories
         public async Task<List<ClientOutputModelDto>> GetAll()
         {
             return await _context.Client
-                .AsNoTracking()
+                .AsNoTrackingWithIdentityResolution()
                 .Select(x => x.ConvertToObjectOutPut())
                 .ToListAsync();
         }
@@ -65,7 +65,7 @@ namespace AppFidelidade.Infrastructure.Repositories
         public async Task<List<ClientOutputModelDto>> GetAll(char status)
         {
             return await _context.Client
-                .AsNoTracking()
+                .AsNoTrackingWithIdentityResolution()
                 .Where(x => x.Status == status)
                 .Select(x => x.ConvertToObjectOutPut())
                 .OrderBy(x => x.Id)
@@ -75,7 +75,7 @@ namespace AppFidelidade.Infrastructure.Repositories
         public async Task<Client> Exists(Client entity)
         {
             return await _context.Client
-                .AsNoTracking()
+                .AsNoTrackingWithIdentityResolution()
                 .FirstOrDefaultAsync(x => x.Cpf == entity.Cpf && x.Email.ToUpper() == entity.Email.ToUpper());
         }
 
@@ -109,28 +109,28 @@ namespace AppFidelidade.Infrastructure.Repositories
         public async Task<Client> GetByCpf(string cpf)
         {
             return await _context.Client
-                .AsNoTracking()
+                .AsNoTrackingWithIdentityResolution()
                 .FirstOrDefaultAsync(x => x.Cpf == cpf);
         }
 
         public async Task<Client> GetByEmail(string email)
         {
             return await _context.Client
-                .AsNoTracking()
+                .AsNoTrackingWithIdentityResolution()
                 .FirstOrDefaultAsync(x => x.Email == email);
         }
 
         public async Task<Client> GetByNumber(string number)
         {
             return await _context.Client
-                .AsNoTracking()
+                .AsNoTrackingWithIdentityResolution()
                 .FirstOrDefaultAsync(x => x.Number == number);
         }
 
         public async Task<Client> GetByLogin(Client client)
         {
             return await _context.Client
-                .AsNoTracking()
+                .AsNoTrackingWithIdentityResolution()
                 .FirstOrDefaultAsync(x => x.Email == client.Email && x.PassWord == client.PassWord);
         }
     }

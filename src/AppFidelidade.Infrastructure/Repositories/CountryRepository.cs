@@ -42,7 +42,7 @@ namespace AppFidelidade.Infrastructure.Repositories
         public async Task<CountryOutputModelDto> GetById(Guid id)
         {
             var obj = await _context.Country
-                .AsNoTracking()
+                .AsNoTrackingWithIdentityResolution()
                 .FirstOrDefaultAsync(x => x.Id == id);
 
             return obj?.ConvertToObjectOutPut();
@@ -51,7 +51,7 @@ namespace AppFidelidade.Infrastructure.Repositories
         public async Task<List<CountryOutputModelDto>> GetAll()
         {
             return await _context.Country
-                .AsNoTracking()
+                .AsNoTrackingWithIdentityResolution()
                 .Select(x => x.ConvertToObjectOutPut())
                 .ToListAsync();
         }
@@ -65,7 +65,7 @@ namespace AppFidelidade.Infrastructure.Repositories
         public async Task<List<CountryOutputModelDto>> GetAll(char status)
         {
             return await _context.Country
-                .AsNoTracking()
+                .AsNoTrackingWithIdentityResolution()
                 .Where(x => x.Status == status)
                 .Select(x => x.ConvertToObjectOutPut())
                 .OrderBy(x => x.Id)
@@ -75,7 +75,7 @@ namespace AppFidelidade.Infrastructure.Repositories
         public async Task<Country> Exists(Country entity)
         {
             return await _context.Country
-                .AsNoTracking()
+                .AsNoTrackingWithIdentityResolution()
                 .FirstOrDefaultAsync(x => x.Description == entity.Description);
         }
 
