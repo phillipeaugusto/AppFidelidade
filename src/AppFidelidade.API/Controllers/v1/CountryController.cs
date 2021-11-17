@@ -31,7 +31,7 @@ namespace AppFidelidade.API.Controllers.v1
                 if (!result.Success)
                     return BadRequest(result);
 
-                return Ok(result);
+                return Ok(result); 
             }
             catch (Exception ex)
             {

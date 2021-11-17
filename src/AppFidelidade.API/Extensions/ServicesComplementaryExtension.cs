@@ -1,5 +1,5 @@
 ﻿using AppFidelidade.Core.Constants;
-using AppFidelidade.Core.Services;
+using AppFidelidade.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;

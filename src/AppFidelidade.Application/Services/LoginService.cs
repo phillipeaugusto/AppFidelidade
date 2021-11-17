@@ -7,9 +7,9 @@ using AppFidelidade.Core.CommandServices.Shared;
 using AppFidelidade.Core.Constants;
 using AppFidelidade.Core.Entities;
 using AppFidelidade.Core.Repositories;
-using AppFidelidade.Core.Services;
 using AppFidelidade.Core.Shared;
 using AppFidelidade.Core.Shared.Contracts;
+using AppFidelidade.Infrastructure.Services;
 using Flunt.Notifications;
 
 namespace AppFidelidade.Application.Services

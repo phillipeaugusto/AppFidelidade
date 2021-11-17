@@ -1,5 +1,4 @@
-﻿using System.Text;
-using static System.String;
+﻿using static System.String;
 
 namespace AppFidelidade.Core.Constants
 {

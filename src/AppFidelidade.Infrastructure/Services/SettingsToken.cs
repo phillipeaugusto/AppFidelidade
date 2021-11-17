@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace AppFidelidade.Core.Services
+namespace AppFidelidade.Infrastructure.Services
 {
     public class SettingsToken
     {

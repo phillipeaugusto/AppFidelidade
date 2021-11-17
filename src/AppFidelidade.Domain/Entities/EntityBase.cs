@@ -9,17 +9,17 @@ namespace AppFidelidade.Core.Entities
 
         protected EntityBase()
         {
-            var mapperConfiguration = new MapperConfiguration(cfg =>
+            var mapperConfiguration1 = new MapperConfiguration(cfg =>
                 cfg.CreateMap<TSource, TDestiny>()
             );
 
-            _mapperTDestiny = new Mapper(mapperConfiguration);
+            _mapperTDestiny = new Mapper(mapperConfiguration1);
             
-            var mapperConfiguration3 = new MapperConfiguration(cfg =>
+            var mapperConfiguration2= new MapperConfiguration(cfg =>
                 cfg.CreateMap<TSource, TOutPut>()
             );
 
-            _mapperTOutPut = new Mapper(mapperConfiguration3);
+            _mapperTOutPut = new Mapper(mapperConfiguration2);
         }
         
         public TDestiny ConvertToObject() => _mapperTDestiny.Map<TDestiny>(this);

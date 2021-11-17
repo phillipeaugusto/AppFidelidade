@@ -4,7 +4,7 @@ using System.Security.Claims;
 using AppFidelidade.Core.Entities;
 using Microsoft.IdentityModel.Tokens;
 
-namespace AppFidelidade.Core.Services
+namespace AppFidelidade.Infrastructure.Services
 {
     public static class TokenService
     {
