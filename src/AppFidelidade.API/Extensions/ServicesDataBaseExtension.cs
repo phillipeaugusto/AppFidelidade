@@ -9,8 +9,8 @@ namespace AppFidelidade.API.Extensions
     {
         public static void ServicesDataBaseInitialization(this IServiceCollection services, IConfiguration configuration)
         {
-            var mySqlConnectionStr = configuration["ConnectionMySql:ConnectionString"];
-            services.AddDbContext<DataContext>(options => options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
+            var connectionDb = configuration["ConnectionDb:ConnectionString"];
+            services.AddDbContext<DataContext>(options => options.UseNpgsql(connectionDb));
         }
     }
 }

@@ -53,11 +53,11 @@ namespace AppFidelidade.Infrastructure.Mappings
                 .IsRequired();
 
             builder.Property(prop => prop.DateChange)
-                .HasColumnType("datetime")
+                .HasColumnType("timestamp(0)")
                 .IsRequired();
 
             builder.Property(prop => prop.DateCreation)
-                .HasColumnType("datetime")
+                .HasColumnType("timestamp(0)")
                 .IsRequired();
             
         }
