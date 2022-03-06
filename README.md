@@ -11,4 +11,4 @@ Api criada para validação de conceitos e tem o ituito de gerenciar clientes e 
 - Swagger 
 - JWT
 - Pagination
-- MySQL
+- PostgreSQL
