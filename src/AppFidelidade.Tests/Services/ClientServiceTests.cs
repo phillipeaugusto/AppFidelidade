@@ -24,8 +24,8 @@ namespace AppFidelidade.Tests.Services
         private readonly City _city = new City(Guid.NewGuid(), "CITY");
         private readonly CityOutputModelDto _cityOutputModelDto = new CityOutputModelDto("CITY", Guid.NewGuid());
         private static Client _client = new Client(Guid.NewGuid(), "00000000000", "NAME123", "0000000", "USER@USER.COM.BR", "123456789", RolesConstant.RoleAdmUser);
-        private static ClientInputModelDto _cardClientInputModelDtoValid = new ClientInputModelDto("00000000000", "NAME123", "0000000", "USER@USER.COM.BR", "USER", "123456789", Guid.NewGuid());
-        private static ClientInputModelDto _cardClientInputModelDtoInValid = new ClientInputModelDto(Empty, Empty, Empty, Empty, Empty, Empty, Guid.Empty);
+        private static ClientInputModelDto _cardClientInputModelDtoValid = new ClientInputModelDto("00000000000", "NAME123", "0000000", "USER@USER.COM.BR", "123456789", Guid.NewGuid());
+        private static ClientInputModelDto _cardClientInputModelDtoInValid = new ClientInputModelDto(Empty, Empty, Empty, Empty, Empty, Guid.Empty);
         private static ClientOutputModelDto _clientOutputDto = new ClientOutputModelDto(Guid.NewGuid(), "00000000001", "NAME", "0000000000000", "USER@USER.COM.BR");
         private readonly GetAllPaginationService _comandGetAllPaginationService = new GetAllPaginationService(new PaginationParameters(1, 10));
         private readonly GetAllService _comandGetAllService = new GetAllService();

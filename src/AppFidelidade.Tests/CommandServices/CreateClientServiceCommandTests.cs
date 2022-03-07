@@ -8,8 +8,8 @@ namespace AppFidelidade.Tests.CommandServices
 {
     public class CreateClientServiceCommandTests
     {
-        private readonly CreateClientServiceCommand _invalidComand = new CreateClientServiceCommand(new ClientInputModelDto(Empty, Empty, Empty, Empty, Empty, Empty, Guid.Empty));
-        private readonly CreateClientServiceCommand _validComand = new CreateClientServiceCommand(new ClientInputModelDto("00000000000","NAME123","0000000", "USER@USER.COM.BR", "USER", "123456789", Guid.NewGuid()));
+        private readonly CreateClientServiceCommand _invalidComand = new CreateClientServiceCommand(new ClientInputModelDto(Empty, Empty, Empty, Empty, Empty, Guid.Empty));
+        private readonly CreateClientServiceCommand _validComand = new CreateClientServiceCommand(new ClientInputModelDto("00000000000","NAME123","0000000", "USER@USER.COM.BR", "123456789", Guid.NewGuid()));
 
         [Fact]
         public void Given_to_an_invalid_client()

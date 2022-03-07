@@ -10,13 +10,12 @@ namespace AppFidelidade.Core.Dto.InputModelDto
     {
         public ClientInputModelDto() { }
 
-        public ClientInputModelDto(string cpf, string name, string number, string email, string user, string passWord, Guid cityId)
+        public ClientInputModelDto(string cpf, string name, string number, string email, string passWord, Guid cityId)
         {
             Cpf = cpf;
             Name = name;
             Number = number;
             Email = email;
-            User = user;
             PassWord = passWord;
             CityId = cityId;
         }
@@ -28,8 +27,6 @@ namespace AppFidelidade.Core.Dto.InputModelDto
         public string Number { get; set; }
         [Required]
         public string Email { get; set; }
-        [Required]
-        public string User { get; set; }
         [Required]
         public string PassWord { get; set; }
         [Required]

@@ -133,5 +133,12 @@ namespace AppFidelidade.Infrastructure.Repositories
                 .AsNoTrackingWithIdentityResolution()
                 .FirstOrDefaultAsync(x => x.Email == client.Email && x.PassWord == client.PassWord);
         }
+
+        public async Task<Client> GetClientValidate(Client client)
+        {
+            return await _context.Client
+                .AsNoTrackingWithIdentityResolution()
+                .FirstOrDefaultAsync(x => x.Cpf == client.Cpf && x.Number == client.Number && x.Email == client.Email);
+        }
     }
 }

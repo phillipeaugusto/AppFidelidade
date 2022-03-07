@@ -25,8 +25,6 @@ namespace AppFidelidade.Core.CommandServices
                     .HasMinLen(ClientInputModelDto.Name, 5,"Name",GlobalMessageConstants.NumberOfInvalidCharacters)
                     .IsFalse(ClientInputModelDto.Number == Empty, "Number",GlobalMessageConstants.FieldInvalidOrNonExistent)
                     .HasMinLen(ClientInputModelDto.Number, 10,"Number",GlobalMessageConstants.NumberOfInvalidCharacters)
-                    .IsFalse(ClientInputModelDto.User == Empty, "User",GlobalMessageConstants.FieldInvalidOrNonExistent)
-                    .HasMinLen(ClientInputModelDto.User, 10,"User",GlobalMessageConstants.NumberOfInvalidCharacters)
                     .IsFalse(ClientInputModelDto.PassWord == Empty, "PassWord",GlobalMessageConstants.FieldInvalidOrNonExistent)
                     .HasMinLen(ClientInputModelDto.PassWord, 4,"PassWord",GlobalMessageConstants.NumberOfInvalidCharacters)
                     .IsEmail(ClientInputModelDto.Email, "Email", GlobalMessageConstants.FieldInvalidOrNonExistent)

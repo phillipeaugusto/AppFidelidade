@@ -11,5 +11,6 @@ namespace AppFidelidade.Core.Repositories
         public Task<Client> GetByEmail(string email);
         public Task<Client> GetByNumber(string number);
         public Task<Client> GetByLogin(Client client);
+        public Task<Client> GetClientValidate(Client client);
     }
 }

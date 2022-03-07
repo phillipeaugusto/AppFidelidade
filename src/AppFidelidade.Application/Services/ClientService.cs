@@ -32,17 +32,10 @@ namespace AppFidelidade.Application.Services
         {
             var cityObj = await _cityRepository.GetById(action.ClientInputModelDto.CityId);
             var cityValid = cityObj is {};
-            
-            var client = await _clientRepository.GetByCpf(action.ClientInputModelDto.Cpf);
-            var clientValid = client is null;
 
-            var clientByNumber = await _clientRepository.GetByNumber(action.ClientInputModelDto.Number);
-            var clientByNumberValid = clientByNumber is null;
-            
-            var clientByEmail = await _clientRepository.GetByEmail(action.ClientInputModelDto.Email);
-            var clientByEmailValid = clientByEmail is null;
-            
-            var result = (cityValid && clientValid && clientByNumberValid && clientByEmailValid);
+            var clientObj = await _clientRepository.GetClientValidate(action.ClientInputModelDto.ConvertToObject());
+            var clientValid = clientObj is null;
+            var result = (cityValid && clientValid);
 
             if (!result) 
                 return await Result.ResultAsync(false, GlobalMessageConstants.EntitieInvalid);
