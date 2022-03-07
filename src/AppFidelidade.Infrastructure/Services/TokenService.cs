@@ -15,7 +15,7 @@ namespace AppFidelidade.Infrastructure.Services
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Email, client.Email),
+                    new Claim(ClaimTypes.Sid, client.Id.ToString()),
                     new Claim(ClaimTypes.Role, client.Role)
                 }),
                 Expires = DateTime.UtcNow.AddDays(1),
