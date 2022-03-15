@@ -27,13 +27,9 @@ namespace AppFidelidade.Application.Services
         
         private async Task<IResult> ValidateDataCreateCard(CreateCardServiceCommand action)
         {
-            
             var cardByClientId = await _cardRepository.GetCardByClientId(action.CardInputModelDto.ClientId);
             var cardByClientIdValid = cardByClientId is null;
-
-            var result = cardByClientIdValid;
-
-            return result ? await Result.ResultAsync(true) : await Result.ResultAsync(false, GlobalMessageConstants.EntitieInvalid);
+            return cardByClientIdValid ? await Result.ResultAsync(true) : await Result.ResultAsync(false, GlobalMessageConstants.EntitieInvalid);
         }
 
         public async Task<IResult> Service(GetAllPaginationService action)

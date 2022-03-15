@@ -1,11 +1,9 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 using AppFidelidade.Core.Pagination;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 using static System.Decimal;
 
 namespace AppFidelidade.Infrastructure.Repositories.Pagination

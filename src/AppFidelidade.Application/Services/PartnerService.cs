@@ -119,9 +119,7 @@ namespace AppFidelidade.Application.Services
             if (obj is null)
                 return await Result.ResultAsync(false, GlobalMessageConstants.MessageDataNotFound);
 
-            var objConvert = obj.ConvertToObject();
-            await _partnerRepository.Delete(objConvert);
-
+            await _partnerRepository.Delete(obj.ConvertToObject());
             return await Result.ResultAsync(true, GlobalMessageConstants.MessageSucessRemove);
         }
 

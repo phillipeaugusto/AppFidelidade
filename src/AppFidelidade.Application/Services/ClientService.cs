@@ -113,7 +113,6 @@ namespace AppFidelidade.Application.Services
                 return await Result.ResultAsync(false, objValidation.Message);   
  
             var obj = action.ClientInputModelDto.ConvertToObject();
-            obj.SetId(action.Id);
 
             await _clientRepository.Update(obj);
             return await Result.ResultAsync(true, GlobalMessageConstants.MessageSucessChange, obj.ConvertToObjectOutPut());
