@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
-using AppFidelidade.Core.Dto.OutputModelDto;
-using AppFidelidade.Core.Entities;
-using AppFidelidade.Core.Repositories.Contracts;
+using AppFidelidade.Domain.Dto.OutputModelDto;
+using AppFidelidade.Domain.Entities;
+using AppFidelidade.Domain.Repositories.Contracts;
 
-namespace AppFidelidade.Core.Repositories
+namespace AppFidelidade.Domain.Repositories;
+
+public interface IPartnerRepository: IRepository<Partner, PartnerOutputModelDto>
 {
-    public interface IPartnerRepository: IRepository<Partner, PartnerOutputModelDto>
-    {
-        Task<Partner> GetByCnpjCpf(string cnpjCpf);
-        Task<Partner> GetByCnpjCpfById(string cnpjCpf, Guid id);
-        Task<Partner> GetByCorporateName(string corporateName);
-    }
+    Task<Partner> GetByCnpjCpf(string cnpjCpf);
+    Task<Partner> GetByCnpjCpfById(string cnpjCpf, Guid id);
+    Task<Partner> GetByCorporateName(string corporateName);
 }

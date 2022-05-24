@@ -1,20 +1,19 @@
 ﻿using System;
-using AppFidelidade.Core.Dto.Shared;
-using AppFidelidade.Core.Entities;
+using AppFidelidade.Domain.Dto.Shared;
+using AppFidelidade.Domain.Entities;
 
-namespace AppFidelidade.Core.Dto.OutputModelDto
+namespace AppFidelidade.Domain.Dto.OutputModelDto;
+
+public class CityOutputModelDto: Dto<CityOutputModelDto, City> 
 {
-    public class CityOutputModelDto: Dto<CityOutputModelDto, City> 
+    public CityOutputModelDto() { }
+
+    public CityOutputModelDto(string description, Guid countryId)
     {
-        public CityOutputModelDto() { }
+        Description = description;
+        CountryId = countryId;
+    }
 
-        public CityOutputModelDto(string description, Guid countryId)
-        {
-            Description = description;
-            CountryId = countryId;
-        }
-
-        public string Description { get; set; }
-        public Guid CountryId { get; set; }
-     }
+    public string Description { get; set; }
+    public Guid CountryId { get; set; }
 }

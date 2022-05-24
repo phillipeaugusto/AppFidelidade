@@ -1,10 +1,9 @@
-﻿using AppFidelidade.Core.CommandServices.Contracts;
+﻿using AppFidelidade.Domain.CommandServices.Contracts;
 using Flunt.Notifications;
 
-namespace AppFidelidade.Core.CommandServices.Shared
+namespace AppFidelidade.Domain.CommandServices.Shared;
+
+public class GetAllService: Notifiable, IValidator
 {
-    public class GetAllService: Notifiable, IValidator
-    {
-        public void Validate() { }
-    }
+    public void Validate() { }
 }

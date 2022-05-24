@@ -1,18 +1,17 @@
-﻿using AppFidelidade.Core.Entities;
-using AppFidelidade.Core.Dto.Shared;
+﻿using AppFidelidade.Domain.Dto.Shared;
+using AppFidelidade.Domain.Entities;
 
-namespace AppFidelidade.Core.Dto.OutputModelDto
+namespace AppFidelidade.Domain.Dto.OutputModelDto;
+
+public class CountryOutputModelDto: Dto<CountryOutputModelDto, Country> 
 {
-    public class CountryOutputModelDto: Dto<CountryOutputModelDto, Country> 
+    public CountryOutputModelDto() { }
+
+    public CountryOutputModelDto(string description)
     {
-        public CountryOutputModelDto() { }
-
-        public CountryOutputModelDto(string description)
-        {
-            Description = description;
-        }
-
-        public string Description { get; set; }
-        
+        Description = description;
     }
+
+    public string Description { get; set; }
+        
 }

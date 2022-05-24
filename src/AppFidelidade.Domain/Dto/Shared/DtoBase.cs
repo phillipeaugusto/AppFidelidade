@@ -1,36 +1,35 @@
 ﻿using AutoMapper;
 
-namespace AppFidelidade.Core.Dto.Shared
+namespace AppFidelidade.Domain.Dto.Shared;
+
+public abstract class DtoBase<TSource, TDestiny>
 {
-    public abstract class DtoBase<TSource, TDestiny>
+    private readonly Mapper _mapperSource;
+    private readonly Mapper _mapperDestiny;
+
+    protected DtoBase()
     {
-        private readonly Mapper _mapperSource;
-        private readonly Mapper _mapperDestiny;
+        var mapperConfigurationSource = new MapperConfiguration(cfg =>
+            cfg.CreateMap<TSource, TDestiny>()
+        );
 
-        protected DtoBase()
-        {
-            var mapperConfigurationSource = new MapperConfiguration(cfg =>
-                cfg.CreateMap<TSource, TDestiny>()
-            );
-
-            _mapperSource = new Mapper(mapperConfigurationSource);
+        _mapperSource = new Mapper(mapperConfigurationSource);
             
-            var mapperConfigurationDestiny = new MapperConfiguration(cfg =>
-                cfg.CreateMap<TSource, TDestiny>()
-            );
+        var mapperConfigurationDestiny = new MapperConfiguration(cfg =>
+            cfg.CreateMap<TSource, TDestiny>()
+        );
 
-            _mapperDestiny = new Mapper(mapperConfigurationDestiny);
+        _mapperDestiny = new Mapper(mapperConfigurationDestiny);
             
-        }
-        public TDestiny ConvertToObject()
-        {
-            return _mapperSource.Map<TDestiny>(this);
-        }
-        
-        public TSource ConvertToObjectSource()
-        {
-            return _mapperDestiny.Map<TSource>(this);
-        }
-
     }
+    public TDestiny ConvertToObject()
+    {
+        return _mapperSource.Map<TDestiny>(this);
+    }
+        
+    public TSource ConvertToObjectSource()
+    {
+        return _mapperDestiny.Map<TSource>(this);
+    }
+
 }

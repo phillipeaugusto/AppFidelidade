@@ -1,18 +1,17 @@
-﻿using AppFidelidade.Core.Shared.Contracts;
+﻿using AppFidelidade.Domain.Shared.Contracts;
 
-namespace AppFidelidade.Core.Shared
+namespace AppFidelidade.Domain.Shared;
+
+public class GenericResult: IResult
 {
-    public class GenericResult: IResult
+    public GenericResult(bool success, string message, object data)
     {
-        public GenericResult(bool success, string message, object data)
-        {
-            Success = success;
-            Message = message;
-            Data = data;
-        }
-
-        public bool Success { get; set; }
-        public string Message { get; set; }
-        public object Data { get; set; }
+        Success = success;
+        Message = message;
+        Data = data;
     }
+
+    public bool Success { get; set; }
+    public string Message { get; set; }
+    public object Data { get; set; }
 }

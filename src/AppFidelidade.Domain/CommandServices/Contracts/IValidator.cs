@@ -1,9 +1,8 @@
 ﻿using Flunt.Validations;
 
-namespace AppFidelidade.Core.CommandServices.Contracts
-{
-    public interface IValidator: IValidatable
-    {
+namespace AppFidelidade.Domain.CommandServices.Contracts;
 
-    }
+public interface IValidator: IValidatable
+{
+
 }

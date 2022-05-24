@@ -1,27 +1,25 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using AppFidelidade.Core.Constants;
+using AppFidelidade.Domain.Constants;
 
-namespace AppFidelidade.Core.Entities
+namespace AppFidelidade.Domain.Entities;
+
+public class Entity <TSource, TDestiny, TOutPut> : EntityBase<TSource, TDestiny, TOutPut>
 {
-    public class Entity <TSource, TDestiny, TOutPut> : EntityBase<TSource, TDestiny, TOutPut>
+    public Entity()
     {
-        public Entity()
-        {
-            Id = Guid.NewGuid();
-            DateCreation = DateTime.Now;
-            DateChange = DateTime.Now;
-            Status = ApplicationConstants.StatusActive;
-        }
+        Id = Guid.NewGuid();
+        DateCreation = DateTime.Now;
+        DateChange = DateTime.Now;
+        Status = ApplicationConstants.StatusActive;
+    }
 
-        public Guid Id { get; private set; }
-        public char Status { get; set; }
-        public DateTime DateCreation { get; set; }
-        public DateTime DateChange { get; set; }
+    public Guid Id { get; protected set; }
+    public char Status { get; set; }
+    public DateTime DateCreation { get; set; }
+    public DateTime DateChange { get; set; }
 
-        public void SetId(Guid id)
-        {
-            Id = id;
-        }
+    public void SetId(Guid id)
+    {
+        Id = id;
     }
 }

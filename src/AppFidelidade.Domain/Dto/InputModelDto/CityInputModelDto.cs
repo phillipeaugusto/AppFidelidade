@@ -1,22 +1,20 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using AppFidelidade.Core.Dto.OutputModelDto;
-using AppFidelidade.Core.Dto.Shared;
-using AppFidelidade.Core.Entities;
+using AppFidelidade.Domain.Dto.Shared;
+using AppFidelidade.Domain.Entities;
 
-namespace AppFidelidade.Core.Dto.InputModelDto
+namespace AppFidelidade.Domain.Dto.InputModelDto;
+
+public class CityInputModelDto: DtoBase<CityInputModelDto, City>
 {
-    public class CityInputModelDto: DtoBase<CityInputModelDto, City>
-    {
-        public CityInputModelDto() { }
+    public CityInputModelDto() { }
 
-        public CityInputModelDto(string state, string description)
-        {
-            State = state;
-            Description = description;
-        }
-        [Required]
-        public string State { get; set; }
-        [Required]
-        public string Description { get; set; }
+    public CityInputModelDto(string state, string description)
+    {
+        State = state;
+        Description = description;
     }
+    [Required]
+    public string State { get; set; }
+    [Required]
+    public string Description { get; set; }
 }
