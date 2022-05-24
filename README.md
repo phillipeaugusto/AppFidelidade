@@ -2,9 +2,9 @@
 # App Fidelidade
 
 
-Api criada para validação de conceitos e tem o ituito de gerenciar clientes e seus cartões, juntamente com os fornecedores de produtos / serviços com o segmento de fidelidade/captação de cliente.
+Api criada para validação de conceitos, e tem o intuito de gerenciar clientes, cartões fidelidades e parceiros.
 
-- DotnetCore 3.1
+- Dotnet 6.0
 - EF
 - AutoMapper
 - Clean Architecture
